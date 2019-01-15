@@ -847,7 +847,7 @@ class Dataset(Element):
             Cloned object
         """
         if 'datatype' not in overrides:
-            datatypes = [self.interface.datatype] + self.datatype
+            datatypes = [self.interface.datatype] + self.params('datatype').default
             overrides['datatype'] = list(util.unique_iterator(datatypes))
         return super(Dataset, self).clone(data, shared_data, new_type, *args, **overrides)
 
